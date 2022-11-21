@@ -1,6 +1,6 @@
 #Source: http://derekmolloy.ie/hello-world-introductions-to-cmake/
 cmake_minimum_required(VERSION 3.22)
-project(directory_test)
+project(helloworld)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 #Bring the headers, such as Student.h into the project
