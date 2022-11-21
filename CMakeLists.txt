@@ -14,3 +14,8 @@ file(GLOB SOURCES "src/*.cpp")
 
 # add_executable(<exe_name> <folder_w_src_code>)
 add_executable(exe ${SOURCES})
+
+link_directories(${CMAKE_SOURCE_DIR}/lib)
+
+# this means that under the ./lib folder, there are the libfoo.so and libbar.so files
+# target_link_libraries(foo bar)
