@@ -1,4 +1,4 @@
-# C++ on WSL2 with VS Code
+# C++ on WSL2 with VS Code and CMake
 
 This is an example of how to use:
 * Install Ubuntu in WSL2
