@@ -30,6 +30,7 @@ link_directories(${CMAKE_SOURCE_DIR}/lib)
 # Link fmt
 find_package(fmt)
 target_link_libraries("${MY_EXE_NAME}" PRIVATE fmt::fmt)
+target_compile_options ("${MY_EXE_NAME}" PRIVATE -Wall -Werror -O3 -fPIC -std=c++20 )
 
 # this means that under the ./lib folder, there are the libfoo.so and libbar.so files
 # target_link_libraries(foo bar)
