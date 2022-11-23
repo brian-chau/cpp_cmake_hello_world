@@ -203,7 +203,7 @@ This is an example of how to use:
     5. Better C++ Syntax
     6. Clang Format by xaver
 5. Close VSCode
-6. Install Clang Format with `sudo apt install clang-format cmake`
+6. Install Clang Format with `sudo apt install clang-format`
 7. Type `code .` in the terminal to restart it.
 8. Press Ctrl+Shift+X again to open the "Extensions" window.
 9. If any of the above extensions say "Install in WSL: Ubuntu-22.04", then click that button.
