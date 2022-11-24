@@ -1,8 +1,10 @@
 #include <memory>
 
-#include "Student.h"
+#include "Solution.h"
 int main() {
-    std::unique_ptr<Student> ptr(std::make_unique<Student>());
-    ptr->SayHi();
+    std::unique_ptr<Solution> ptr(std::make_unique<Solution>());
+    std::vector<int> input{1, 2, 3, 4};
+    std::vector<int> actualResult(ptr->runningSum(input));
+
     return 0;
 }
