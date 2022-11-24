@@ -5,5 +5,6 @@ public:
     Student();
     ~Student();
     void SayHi();
+    int ReturnOne();
 };
 #endif
