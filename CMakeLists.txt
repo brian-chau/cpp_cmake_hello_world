@@ -8,8 +8,10 @@ cmake_minimum_required(VERSION 3.22)
 ## Build options
 ##      Turn on with 'cmake -Dtest=ON'.
 ################################################################
-option(test "Build all tests." OFF) # Makes boolean 'test' available.
-
+option(test        "Build all tests."  OFF) # Makes boolean 'test' available.
+option(HappyNumber "Happy number only" OFF)
+option(Pivot       "Pivot"             OFF)
+option(RunningSum  "Running sum only"  OFF)
 ################################################################
 ## Project description
 ## Syntax:
@@ -65,21 +67,31 @@ if (test)
     find_package(GTest REQUIRED)
     include_directories(${GTEST_INCLUDE_DIRS})
 
-    # Include all files, except for the "sources/main.cpp" file
-    file(GLOB SOURCES "tests/*.cpp" "sources/*.cpp" )
+    # Fetch all the source files needed for testing
+    file(GLOB SOURCES "sources/*.cpp" "tests/Test_main.cpp")
+
+    # ...except the ./sources/main.cpp file
     foreach(ITEM ${SOURCES})
         if(${ITEM} MATCHES "sources/main.cpp")
             list(REMOVE_ITEM SOURCES ${ITEM})
         endif(${ITEM} MATCHES "sources/main.cpp")
     endforeach(ITEM)
 
-    file(GLOB TEST_NAMES "tests/*.cpp")
-    foreach(TEST_NAME ${TEST_NAMES})
-        get_filename_component(STRIPPED_TEST_NAME ${TEST_NAME} NAME_WE)
-        if(NOT ${STRIPPED_TEST_NAME} MATCHES "main")
-            add_test(NAME ${STRIPPED_TEST_NAME} COMMAND ${CMAKE_PROJECT_NAME})
-        endif()
-    endforeach()
+    # Depending on the flag, pick the specific test
+    if(HappyNumber)
+        file(GLOB TEST_NAMES "tests/Test_HappyNumber.cpp")
+    elseif(Pivot)
+        file(GLOB TEST_NAMES "tests/Test_Pivot.cpp")
+    elseif(RunningSum)
+        file(GLOB TEST_NAMES "tests/Test_RunningSum.cpp")
+    else()
+        file(GLOB TEST_NAMES "tests/*.cpp")
+    endif()
+    list(APPEND      SOURCES    ${TEST_NAMES})
+    list(REMOVE_ITEM TEST_NAMES tests/Test_main.cpp)
+
+    # Add the tests to GoogleTest
+    add_test(NAME LeetCodeTests COMMAND ${CMAKE_PROJECT_NAME})
 
     # Compile the unit test binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
@@ -87,6 +99,7 @@ if (test)
 
     # In the linkers, add the GoogleTest libraries
     target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES})
+
 else()
     # Compile the main binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})

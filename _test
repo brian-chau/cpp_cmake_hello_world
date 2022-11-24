@@ -1,5 +1,18 @@
 #!/bin/bash
 
 rm -rf build bin
-mkdir build && cd build && cmake -Dtest=ON .. && make && make test
+
+# RunningSum
+# mkdir build && cd build && cmake -Dtest=ON -DRunningSum=ON  .. && make && make test
+
+# Pivot
+# mkdir build && cd build && cmake -Dtest=ON -DPivot=ON       .. && make && make test
+
+# HappyNumber
+# mkdir build && cd build && cmake -Dtest=ON -DHappyNumber=ON .. && make && make test
+
+# Run everything
+mkdir build && cd build && cmake -Dtest=ON                 .. && make && make test
+
+
 mv ./Testing/Temporary/LastTest.log ../LastTest.log

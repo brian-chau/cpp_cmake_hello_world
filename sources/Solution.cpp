@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iostream>
 #include <numeric>
+#include <set>
 
 Solution::Solution() {
 }
@@ -41,4 +42,23 @@ int Solution::pivotIndex(std::vector<int>& nums) {
         }
     }
     return -1;
+}
+
+int getNext(int n) {
+    int totalSum(0);
+    while (n > 0) {
+        int d = n % 10;
+        n = n / 10;
+        totalSum += d * d;
+    }
+    return totalSum;
+}
+
+bool Solution::isHappy(int n) {
+    std::set<int> seen;
+    while (n != 1 && seen.find(n) == seen.end()) {
+        seen.insert(n);
+        n = getNext(n);
+    }
+    return n == 1;
 }

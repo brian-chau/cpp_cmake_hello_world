@@ -8,5 +8,6 @@ public:
     ~Solution();
     std::vector<int> runningSum(std::vector<int>& nums);
     int pivotIndex(std::vector<int>& nums);
+    bool isHappy(int n);
 };
 #endif
