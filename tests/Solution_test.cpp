@@ -37,24 +37,46 @@ protected:
 
 // Test case must be called the class above
 // Also note: use TEST_F instead of TEST to access the test fixture (from google test primer)
-TEST_F(SolutionTest, Returns1) {
+TEST_F(SolutionTest, RunningSum1) {
     std::vector<int> input{1, 2, 3, 4};
     std::vector<int> actualResult(s.runningSum(input));
     std::vector<int> expectedResult{1, 3, 6, 10};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
 }
 
-TEST_F(SolutionTest, Returns2) {
+TEST_F(SolutionTest, RunningSum2) {
     std::vector<int> input{1, 1, 1, 1, 1};
     std::vector<int> actualResult(s.runningSum(input));
     std::vector<int> expectedResult{1, 2, 3, 4, 5};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
 }
 
-TEST_F(SolutionTest, Returns3) {
+TEST_F(SolutionTest, RunningSum3) {
     std::vector<int> input{3, 1, 2, 10, 1};
     std::vector<int> actualResult(s.runningSum(input));
     std::vector<int> expectedResult{3, 4, 6, 16, 17};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
 }
+
+TEST_F(SolutionTest, PivotIndex1) {
+    std::vector<int> input{1, 7, 3, 6, 5, 6};
+    int actualResult(s.pivotIndex(input));
+    int expectedResult(3);
+    EXPECT_EQ(actualResult, expectedResult);
+}
+
+TEST_F(SolutionTest, PivotIndex2) {
+    std::vector<int> input{1, 2, 3};
+    int actualResult(s.pivotIndex(input));
+    int expectedResult(-1);
+    EXPECT_EQ(actualResult, expectedResult);
+}
+
+TEST_F(SolutionTest, PivotIndex3) {
+    std::vector<int> input{2, 1, -1};
+    int actualResult(s.pivotIndex(input));
+    int expectedResult(0);
+    EXPECT_EQ(actualResult, expectedResult);
+}
+
 // }  // namespace - could surround SolutionTest in a namespace

@@ -1,33 +1,39 @@
-Start testing: Nov 23 20:58 PST
+Start testing: Nov 23 21:32 PST
 ----------------------------------------------------------
 1/1 Testing: Solution_test
 1/1 Test: Solution_test
 Command: "/home/brian/repos/cpp_cmake_google_test/bin/exe_test"
 Directory: /home/brian/repos/cpp_cmake_google_test/build
-"Solution_test" start time: Nov 23 20:58 PST
+"Solution_test" start time: Nov 23 21:32 PST
 Output:
 ----------------------------------------------------------
 Running main() from /home/brian/repos/cpp_cmake_google_test/tests/test_main.cpp
-[==========] Running 3 tests from 1 test suite.
+[==========] Running 6 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 3 tests from SolutionTest
-[ RUN      ] SolutionTest.Returns1
-[       OK ] SolutionTest.Returns1 (0 ms)
-[ RUN      ] SolutionTest.Returns2
-[       OK ] SolutionTest.Returns2 (0 ms)
-[ RUN      ] SolutionTest.Returns3
-[       OK ] SolutionTest.Returns3 (0 ms)
-[----------] 3 tests from SolutionTest (0 ms total)
+[----------] 6 tests from SolutionTest
+[ RUN      ] SolutionTest.RunningSum1
+[       OK ] SolutionTest.RunningSum1 (0 ms)
+[ RUN      ] SolutionTest.RunningSum2
+[       OK ] SolutionTest.RunningSum2 (0 ms)
+[ RUN      ] SolutionTest.RunningSum3
+[       OK ] SolutionTest.RunningSum3 (0 ms)
+[ RUN      ] SolutionTest.PivotIndex1
+[       OK ] SolutionTest.PivotIndex1 (0 ms)
+[ RUN      ] SolutionTest.PivotIndex2
+[       OK ] SolutionTest.PivotIndex2 (0 ms)
+[ RUN      ] SolutionTest.PivotIndex3
+[       OK ] SolutionTest.PivotIndex3 (0 ms)
+[----------] 6 tests from SolutionTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 1 test suite ran. (0 ms total)
-[  PASSED  ] 3 tests.
+[==========] 6 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 6 tests.
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Solution_test" end time: Nov 23 20:58 PST
+"Solution_test" end time: Nov 23 21:32 PST
 "Solution_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 23 20:58 PST
+End testing: Nov 23 21:32 PST

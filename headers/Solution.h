@@ -7,5 +7,6 @@ public:
     Solution();
     ~Solution();
     std::vector<int> runningSum(std::vector<int>& nums);
+    int pivotIndex(std::vector<int>& nums);
 };
 #endif
