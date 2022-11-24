@@ -75,8 +75,7 @@ if (test)
 
     file(GLOB TEST_NAMES "tests/*.cpp")
     foreach(TEST_NAME ${TEST_NAMES})
-        get_filename_component(STRIPPED_TEST_NAME ${TEST_NAME} NAME)
-        message(${STRIPPED_TEST_NAME})
+        get_filename_component(STRIPPED_TEST_NAME ${TEST_NAME} NAME_WE)
         if(NOT ${STRIPPED_TEST_NAME} MATCHES "main")
             add_test(NAME ${STRIPPED_TEST_NAME} COMMAND ${CMAKE_PROJECT_NAME})
         endif()
@@ -92,7 +91,7 @@ else()
     # Compile the main binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -O3 -fPIC -std=c++20)
-    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES})
+    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt)
 endif()
 
 

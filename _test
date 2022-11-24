@@ -2,3 +2,4 @@
 
 rm -rf build bin
 mkdir build && cd build && cmake -Dtest=ON .. && make && make test
+mv ./Testing/Temporary/LastTest.log ../LastTest.log
