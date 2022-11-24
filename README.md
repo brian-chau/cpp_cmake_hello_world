@@ -230,6 +230,30 @@ This is an example of how to use:
     3. In the keybindings search box, type "Makefile: Build clean the current target"
         1. Double-click the keybinding and replace it with Ctrl+Shift+Z.
 
+## Install project-specific dependencies
+1. Install GoogleTest
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+2. Install FMT
+    * Download fmt library from: https://fmt.dev/latest/index.html
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        make
+        sudo make install
+        ```
+
 ## Build the project
 1. Open a fresh instance of WSL2 and `cd` into this repository.
 2. Type `make clean` to clean the project, and then type `make` to create the executable.
