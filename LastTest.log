@@ -1,10 +1,10 @@
-Start testing: Nov 23 19:47 PST
+Start testing: Nov 23 19:49 PST
 ----------------------------------------------------------
 1/1 Testing: Student_test
 1/1 Test: Student_test
 Command: "/home/brian/repos/cpp_cmake_practice/bin/exe_test"
 Directory: /home/brian/repos/cpp_cmake_practice/build
-"Student_test" start time: Nov 23 19:47 PST
+"Student_test" start time: Nov 23 19:49 PST
 Output:
 ----------------------------------------------------------
 Running main() from /home/brian/repos/cpp_cmake_practice/tests/test_main.cpp
@@ -26,8 +26,8 @@ Running main() from /home/brian/repos/cpp_cmake_practice/tests/test_main.cpp
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Student_test" end time: Nov 23 19:47 PST
+"Student_test" end time: Nov 23 19:49 PST
 "Student_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 23 19:47 PST
+End testing: Nov 23 19:49 PST

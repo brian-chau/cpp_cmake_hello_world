@@ -1,0 +1,1 @@
+/usr/bin/g++-12 CMakeFiles/exe.dir/sources/Student.cpp.o CMakeFiles/exe.dir/sources/main.cpp.o -o /home/brian/repos/cpp_cmake_practice/bin/exe   -L/home/brian/repos/cpp_cmake_practice/lib  -Wl,-rpath,/home/brian/repos/cpp_cmake_practice/lib /usr/local/lib/libfmt.a 

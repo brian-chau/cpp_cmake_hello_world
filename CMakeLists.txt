@@ -43,7 +43,7 @@ find_package(fmt)
 ## Project-specific settings
 ################################################################
 # Include the header files
-include_directories(include)
+include_directories(headers)
 
 # Link libraries
 link_directories(${CMAKE_SOURCE_DIR}/lib)
@@ -54,7 +54,7 @@ link_directories(${CMAKE_SOURCE_DIR}/lib)
 ## Ready to compile/build!
 ################################################################
 ## Assuming no testing...
-file(GLOB SOURCES "src/*.cpp")              # These are the source files
+file(GLOB SOURCES "sources/*.cpp")              # These are the source files
 
 ## Otherwise
 ## Enabled with 'cmake -Dtest=ON'.
@@ -65,12 +65,12 @@ if (test)
     find_package(GTest REQUIRED)
     include_directories(${GTEST_INCLUDE_DIRS})
 
-    # Include all files, except for the "src/main.cpp" file
-    file(GLOB SOURCES "tests/*.cpp" "src/*.cpp" )
+    # Include all files, except for the "sources/main.cpp" file
+    file(GLOB SOURCES "tests/*.cpp" "sources/*.cpp" )
     foreach(ITEM ${SOURCES})
-        if(${ITEM} MATCHES "src/main.cpp")
+        if(${ITEM} MATCHES "sources/main.cpp")
             list(REMOVE_ITEM SOURCES ${ITEM})
-        endif(${ITEM} MATCHES "src/main.cpp")
+        endif(${ITEM} MATCHES "sources/main.cpp")
     endforeach(ITEM)
 
     file(GLOB TEST_NAMES "tests/*.cpp")
