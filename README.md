@@ -172,7 +172,20 @@ This is an example of how to use:
         ```
     4. Run `sudo apt install g++-12 gcc-12 build-essential lcov`
 
-8. Install `cmake` from source.
+7. Install `openssl` from source, along with the `libssl-dev` library.
+    * Download the version `3.0.7` from here: https://www.openssl.org/source/
+    * Run the following commands:
+    ```
+    sudo chmod u+x openssl-3.0.7.tar.gz
+    tar -xzf openssl-3.0.7.tar.gz
+    cd openssl-3.0.7
+    sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+    sudo make
+    sudo make install
+    sudo apt-get install libssl-dev
+    ```
+
+9. Install `cmake` from source.
     1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
     2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
     3. Run the following commands:
