@@ -1,5 +1,12 @@
 # C++ on WSL2 with VS Code and CMake
 
+| Description    | Badge  |
+| -------------- | ------ |
+| Line Code Coverage  | ![Line Code Coverage](TestResults/LineCodeCoverageBadge.svg) |
+| Fxn Code Coverage  | ![Fxn Code Coverage](TestResults/FxnCodeCoverageBadge.svg) |
+| Test Results   | ![Test Results](TestResults/PassFailBadge.svg) |
+
+
 This is an example of how to use:
 * Install Ubuntu in WSL2
 * Setting up Visual Studio Code for GCC compiler for C++ applications
@@ -158,7 +165,7 @@ This is an example of how to use:
 7. Install gcc-12 and g++-12.
     1. Restart WSL.
     2. Run `sudo apt update && sudo apt upgrade`
-    3. Run `sudo apt install g++-12 gcc-12 build-essential`
+    3. Run `sudo apt install g++-12 gcc-12 build-essential gcov lcov`
 
 8. Install `cmake` from source.
     1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/

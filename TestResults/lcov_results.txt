@@ -1,0 +1,10 @@
+Reading data file ../TestResults/main_filtered.info
+Found 1 entries.
+Found common filename prefix "/home/brian/repos/cpp_cmake_google_test"
+Writing .css and .png files.
+Generating output.
+Processing file sources/Solution.cpp
+Writing directory view page.
+Overall coverage rate:
+  lines......: 100.0% (31 of 31 lines)
+  functions..: 100.0% (6 of 6 functions)

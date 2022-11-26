@@ -1,0 +1,4 @@
+/home/brian/repos/cpp_cmake_google_test/build/CMakeFiles/exe_test.dir
+/home/brian/repos/cpp_cmake_google_test/build/CMakeFiles/test.dir
+/home/brian/repos/cpp_cmake_google_test/build/CMakeFiles/edit_cache.dir
+/home/brian/repos/cpp_cmake_google_test/build/CMakeFiles/rebuild_cache.dir

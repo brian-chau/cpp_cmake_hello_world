@@ -12,6 +12,7 @@ option(test        "Build all tests."  OFF) # Makes boolean 'test' available.
 option(HappyNumber "Happy number only" OFF)
 option(Pivot       "Pivot"             OFF)
 option(RunningSum  "Running sum only"  OFF)
+
 ################################################################
 ## Project description
 ## Syntax:
@@ -26,9 +27,9 @@ endif()
 ################################################################
 ## Compiler settings
 ################################################################
-set(CMAKE_C_COMPILER            /usr/bin/gcc-12)
-set(CMAKE_CXX_COMPILER          /usr/bin/g++-12)
-set(CMAKE_CXX_STANDARD          20)
+set(CMAKE_C_COMPILER            /usr/bin/gcc)
+set(CMAKE_CXX_COMPILER          /usr/bin/g++)
+set(CMAKE_CXX_STANDARD          17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS        OFF)
 
@@ -95,11 +96,11 @@ if (test)
 
     # Compile the unit test binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
-    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -O3 -fPIC -std=c++20)
+    target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -O3 -fPIC -std=c++20 --coverage -fprofile-arcs -ftest-coverage)
 
     # In the linkers, add the GoogleTest libraries
-    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES})
-
+    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} gcov)
+    set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
 else()
     # Compile the main binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})

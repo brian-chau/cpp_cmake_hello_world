@@ -1,0 +1,8 @@
+Running tests...
+Test project /home/brian/repos/cpp_cmake_google_test/build
+    Start 1: LeetCodeTests
+1/1 Test #1: LeetCodeTests ....................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

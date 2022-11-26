@@ -1,9 +1,9 @@
-#include "Solution.h"
-
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 #include <iostream>
+
+#include "Solution.h"
 
 // The fixture for testing class Solution. From google test primer.
 class SolutionTest : public ::testing::Test {
@@ -57,5 +57,12 @@ TEST_F(SolutionTest, RunningSum3) {
     std::vector<int> expectedResult{3, 4, 6, 16, 17};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
 }
+
+// TEST_F(SolutionTest, RunningSum4) {
+//     std::vector<int> input{3, 1, 2, 10, 1};
+//     std::vector<int> actualResult(s.runningSum(input));
+//     std::vector<int> expectedResult{3, 4, 6, 16, 33};
+//     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
+// }
 
 // }  // namespace - could surround SolutionTest in a namespace
