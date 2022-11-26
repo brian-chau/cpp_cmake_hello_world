@@ -162,10 +162,15 @@ This is an example of how to use:
     alias ii="explorer.exe"
     ```
 
-7. Install gcc-12 and g++-12.
+7. Install the necessary dependencies.
     1. Restart WSL.
     2. Run `sudo apt update && sudo apt upgrade`
-    3. Run `sudo apt install g++-12 gcc-12 build-essential gcov lcov`
+    3. Install `pip3` and `gcovr`.
+        ```
+        sudo apt install python3-pip
+        pip3 install gcovr
+        ```
+    4. Run `sudo apt install g++-12 gcc-12 build-essential lcov`
 
 8. Install `cmake` from source.
     1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
@@ -177,7 +182,30 @@ This is an example of how to use:
         sudo make install
         ```
 
-9. Add GitHub settings
+9. Install GoogleTest from source.
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+    
+10. Install FMT from source.
+    * Download fmt library from: https://fmt.dev/latest/index.html
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        make
+        sudo make install
+        ```
+11. Add GitHub settings
     1. Restart WSL
     2. Run `mkdir repos`
     3. Connect to GitHub
@@ -236,30 +264,6 @@ This is an example of how to use:
         2. Press Enter to save the keybinding.
     3. In the keybindings search box, type "Makefile: Build clean the current target"
         1. Double-click the keybinding and replace it with Ctrl+Shift+Z.
-
-## Install project-specific dependencies
-1. Install GoogleTest
-    ```
-    git clone https://github.com/google/googletest.git -b release-1.12.1
-    cd googletest        # Main directory of the cloned repository.
-    mkdir build          # Create a directory to hold the build output.
-    cd build
-    cmake ..             # Generate native build scripts for GoogleTest.
-    sudo make
-    sudo make install
-    rm -rf ~/googletest
-    ```
-2. Install FMT
-    * Download fmt library from: https://fmt.dev/latest/index.html
-    * Unzip the `fmt` downloaded file.
-    * Run the following commands:
-        ```
-        mkdir build
-        cd build
-        sudo cmake ..
-        make
-        sudo make install
-        ```
 
 ## Build the project
 1. Open a fresh instance of WSL2 and `cd` into this repository.
