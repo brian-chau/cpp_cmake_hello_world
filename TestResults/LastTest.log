@@ -1,10 +1,10 @@
-Start testing: Nov 26 11:51 PST
+Start testing: Nov 26 12:52 PST
 ----------------------------------------------------------
 1/1 Testing: LeetCodeTests
 1/1 Test: LeetCodeTests
 Command: "/home/brian/repos/cpp_cmake_google_test/bin/exe_test"
 Directory: /home/brian/repos/cpp_cmake_google_test/build
-"LeetCodeTests" start time: Nov 26 11:51 PST
+"LeetCodeTests" start time: Nov 26 12:52 PST
 Output:
 ----------------------------------------------------------
 Running main() from /home/brian/repos/cpp_cmake_google_test/tests/Test_main.cpp
@@ -36,8 +36,8 @@ Running main() from /home/brian/repos/cpp_cmake_google_test/tests/Test_main.cpp
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LeetCodeTests" end time: Nov 26 11:51 PST
+"LeetCodeTests" end time: Nov 26 12:52 PST
 "LeetCodeTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 26 11:51 PST
+End testing: Nov 26 12:52 PST

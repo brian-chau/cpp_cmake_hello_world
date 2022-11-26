@@ -2,9 +2,9 @@
 
 | Description    | Badge  |
 | -------------- | ------ |
-| Line Code Coverage  | ![Line Code Coverage](TestResults/_LineCodeCoverageBadge.svg) |
-| Fxn Code Coverage  | ![Fxn Code Coverage](TestResults/_FxnCodeCoverageBadge.svg) |
-| Test Results   | ![Test Results](TestResults/_PassFailBadge.svg) |
+| Line Code Coverage  | [![Line Code Coverage](TestResults/_LineCodeCoverageBadge.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Fxn Code Coverage   | [![Fxn Code Coverage](TestResults/_FxnCodeCoverageBadge.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Test Results        | [![Test Results](TestResults/_PassFailBadge.svg)](https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/gtest_results.txt) |
 
 
 This is an example of how to use:

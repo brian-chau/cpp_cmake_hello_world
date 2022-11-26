@@ -20,6 +20,7 @@ option(RunningSum  "Running sum only"  OFF)
 ################################################################
 if (test)
     project(exe_test DESCRIPTION "Hello world" LANGUAGES CXX)
+    set(TEST_PROJECT_NAME LeetCodeTests)
 else()
     project(exe DESCRIPTION "Hello world" LANGUAGES CXX)
 endif()
@@ -92,7 +93,7 @@ if (test)
     list(REMOVE_ITEM TEST_NAMES tests/Test_main.cpp)
 
     # Add the tests to GoogleTest
-    add_test(NAME LeetCodeTests COMMAND ${CMAKE_PROJECT_NAME})
+    add_test(NAME ${TEST_PROJECT_NAME} COMMAND ${CMAKE_PROJECT_NAME})
 
     # Compile the unit test binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
