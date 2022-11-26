@@ -2,9 +2,9 @@
 
 | Description    | Badge  |
 | -------------- | ------ |
-| Line Code Coverage  | ![Line Code Coverage](TestResults/LineCodeCoverageBadge.svg) |
-| Fxn Code Coverage  | ![Fxn Code Coverage](TestResults/FxnCodeCoverageBadge.svg) |
-| Test Results   | ![Test Results](TestResults/PassFailBadge.svg) |
+| Line Code Coverage  | ![Line Code Coverage](TestResults/_LineCodeCoverageBadge.svg) |
+| Fxn Code Coverage  | ![Fxn Code Coverage](TestResults/_FxnCodeCoverageBadge.svg) |
+| Test Results   | ![Test Results](TestResults/_PassFailBadge.svg) |
 
 
 This is an example of how to use:
