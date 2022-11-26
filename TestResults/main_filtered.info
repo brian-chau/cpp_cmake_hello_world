@@ -6,12 +6,12 @@ FN:14,_ZN8Solution10runningSumERSt6vectorIiSaIiEE
 FN:24,_ZN8Solution10pivotIndexERSt6vectorIiSaIiEE
 FN:47,_Z7getNexti
 FN:57,_ZN8Solution7isHappyEi
+FNDA:2,_ZN8Solution7isHappyEi
+FNDA:8,_ZN8SolutionD2Ev
 FNDA:8,_ZN8SolutionC2Ev
 FNDA:13,_Z7getNexti
-FNDA:8,_ZN8SolutionD2Ev
-FNDA:3,_ZN8Solution10runningSumERSt6vectorIiSaIiEE
 FNDA:3,_ZN8Solution10pivotIndexERSt6vectorIiSaIiEE
-FNDA:2,_ZN8Solution7isHappyEi
+FNDA:3,_ZN8Solution10runningSumERSt6vectorIiSaIiEE
 FNF:6
 FNH:6
 DA:8,8

@@ -31,7 +31,7 @@ echo Tests passed!
 echo Generating code coverage...
 lcov --capture --directory ./CMakeFiles/$test_exe_name.dir/sources --output-file ../TestResults/main_coverage.info >/dev/null 2>&1
 lcov --remove ../TestResults/main_coverage.info -o ../TestResults/main_filtered.info '/usr/include/*' '/usr/include/x86_64-linux-gnu/*' '/usr/lib/*' '/usr/local/*' '/11/*' >/dev/null 2>&1
-genhtml ../TestResults/main_filtered.info --output-directory ../TestResults > ../TestResults/lcov_results.txt
+genhtml ../TestResults/main_filtered.info --output-directory ../TestResults/CodeCoverage > ../TestResults/lcov_results.txt
 mv ./Testing/Temporary/LastTest.log ../TestResults/LastTest.log
 
 # Fetch code coverage for README badges
@@ -43,31 +43,32 @@ int_fxn_code_coverage=$(printf '%.0f\n' $string_fxn_code_coverage)
 
 # Test results badge
 if $test_failed; then
-    cp ../TestResults/Badges/Test_Results/Passed/green.svg ../TestResults/PassFailBadge.svg
+    cp ../TestResults/Badges/Test_Results/Passed/green.svg ../TestResults/_PassFailBadge.svg
 else
-    cp ../TestResults/Badges/Test_Results/Failed/red.svg ../TestResults/PassFailBadge.svg
+    cp ../TestResults/Badges/Test_Results/Failed/red.svg ../TestResults/_PassFailBadge.svg
 fi
 
 # Fxn Code Coverage badge
 if [[ $int_fxn_code_coverage -ge 90 ]] ; then
-    cp ../TestResults/Badges/Code_Coverage/green/"${int_fxn_code_coverage}_Percent.svg"  ../TestResults/FxnCodeCoverageBadge.svg
+    cp ../TestResults/Badges/Code_Coverage/green/"${int_fxn_code_coverage}_Percent.svg"  ../TestResults/_FxnCodeCoverageBadge.svg
 elif [[ $int_fxn_code_coverage -ge 75 ]] ; then
-    cp ../TestResults/Badges/Code_Coverage/yellow/"${int_fxn_code_coverage}_Percent.svg" ../TestResults/FxnCodeCoverageBadge.svg
+    cp ../TestResults/Badges/Code_Coverage/yellow/"${int_fxn_code_coverage}_Percent.svg" ../TestResults/_FxnCodeCoverageBadge.svg
 else
-    cp ../TestResults/Badges/Code_Coverage/red/"${int_fxn_code_coverage}_Percent.svg"    ../TestResults/FxnCodeCoverageBadge.svg
+    cp ../TestResults/Badges/Code_Coverage/red/"${int_fxn_code_coverage}_Percent.svg"    ../TestResults/_FxnCodeCoverageBadge.svg
 fi
 
 # Line Code Coverage badge
 if [[ $int_line_code_coverage -ge 90 ]] ; then
-    cp ../TestResults/Badges/Code_Coverage/green/"${int_line_code_coverage}_Percent.svg"  ../TestResults/LineCodeCoverageBadge.svg
+    cp ../TestResults/Badges/Code_Coverage/green/"${int_line_code_coverage}_Percent.svg"  ../TestResults/_LineCodeCoverageBadge.svg
 elif [[ $int_line_code_coverage -ge 75 ]] ; then
-    cp ../TestResults/Badges/Code_Coverage/yellow/"${int_line_code_coverage}_Percent.svg" ../TestResults/LineCodeCoverageBadge.svg
+    cp ../TestResults/Badges/Code_Coverage/yellow/"${int_line_code_coverage}_Percent.svg" ../TestResults/_LineCodeCoverageBadge.svg
 else
-    cp ../TestResults/Badges/Code_Coverage/red/"${int_line_code_coverage}_Percent.svg"    ../TestResults/LineCodeCoverageBadge.svg
+    cp ../TestResults/Badges/Code_Coverage/red/"${int_line_code_coverage}_Percent.svg"    ../TestResults/_LineCodeCoverageBadge.svg
 fi
 
 echo Cleaning up...
+# Clean up
+rm -rf ../build
+
 echo Done!
 
-# Clean up
-rm -rf build
