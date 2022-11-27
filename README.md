@@ -208,14 +208,14 @@ This is an example of how to use:
     ```
     
 10. Install FMT from source.
-    * Download fmt library from: https://fmt.dev/latest/index.html
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
     * Unzip the `fmt` downloaded file.
     * Run the following commands:
         ```
         mkdir build
         cd build
         sudo cmake ..
-        make
+        sudo make
         sudo make install
         ```
 11. Add GitHub settings
