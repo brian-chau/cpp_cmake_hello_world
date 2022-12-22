@@ -12,6 +12,7 @@ option(test        "Build all tests."  OFF) # Makes boolean 'test' available.
 option(HappyNumber "Happy number only" OFF)
 option(Pivot       "Pivot"             OFF)
 option(RunningSum  "Running sum only"  OFF)
+option(TwoSum      "TwoSum"            OFF)
 
 ################################################################
 ## Project description
@@ -89,6 +90,8 @@ if (test)
         file(GLOB TEST_NAMES "tests/Test_Pivot.cpp")
     elseif(RunningSum)
         file(GLOB TEST_NAMES "tests/Test_RunningSum.cpp")
+    elseif(TwoSum)
+        file(GLOB TEST_NAMES "tests/Test_TwoSum.cpp")
     else()
         file(GLOB TEST_NAMES "tests/*.cpp")
     endif()

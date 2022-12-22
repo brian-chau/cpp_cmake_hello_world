@@ -9,5 +9,6 @@ public:
     std::vector<int> runningSum(std::vector<int>& nums);
     int pivotIndex(std::vector<int>& nums);
     bool isHappy(int n);
+    std::vector<int> twoSum(std::vector<int>& nums, int target);
 };
 #endif

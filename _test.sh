@@ -14,6 +14,9 @@ echo Preparing to test...
 # HappyNumber
 # mkdir build && cd build && cmake -Dtest=ON -DHappyNumber=ON .. >/dev/null 2>&1 && make >/dev/null 2>&1
 
+# TwoSum
+# mkdir build && cd build && cmake -Dtest=ON -DTwoSum=ON .. >/dev/null 2>&1 && make >/dev/null 2>&1
+
 # Run every test
 mkdir build && cd build && cmake -Dtest=ON                 .. >/dev/null 2>&1 && make >/dev/null 2>&1
 

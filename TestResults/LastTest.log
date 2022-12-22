@@ -1,16 +1,16 @@
-Start testing: Nov 26 14:16 PST
+Start testing: Dec 22 00:26 PST
 ----------------------------------------------------------
 1/1 Testing: LeetCodeTests
 1/1 Test: LeetCodeTests
 Command: "/home/brian/repos/cpp_cmake_google_test/bin/exe_test"
 Directory: /home/brian/repos/cpp_cmake_google_test/build
-"LeetCodeTests" start time: Nov 26 14:16 PST
+"LeetCodeTests" start time: Dec 22 00:26 PST
 Output:
 ----------------------------------------------------------
 Running main() from /home/brian/repos/cpp_cmake_google_test/tests/Test_main.cpp
-[==========] Running 8 tests from 1 test suite.
+[==========] Running 11 tests from 1 test suite.
 [----------] Global test environment set-up.
-[----------] 8 tests from SolutionTest
+[----------] 11 tests from SolutionTest
 [ RUN      ] SolutionTest.HappyNumber1
 [       OK ] SolutionTest.HappyNumber1 (0 ms)
 [ RUN      ] SolutionTest.HappyNumber2
@@ -27,17 +27,23 @@ Running main() from /home/brian/repos/cpp_cmake_google_test/tests/Test_main.cpp
 [       OK ] SolutionTest.RunningSum2 (0 ms)
 [ RUN      ] SolutionTest.RunningSum3
 [       OK ] SolutionTest.RunningSum3 (0 ms)
-[----------] 8 tests from SolutionTest (0 ms total)
+[ RUN      ] SolutionTest.TwoSum1
+[       OK ] SolutionTest.TwoSum1 (0 ms)
+[ RUN      ] SolutionTest.TwoSum2
+[       OK ] SolutionTest.TwoSum2 (0 ms)
+[ RUN      ] SolutionTest.TwoSum3
+[       OK ] SolutionTest.TwoSum3 (0 ms)
+[----------] 11 tests from SolutionTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 8 tests from 1 test suite ran. (0 ms total)
-[  PASSED  ] 8 tests.
+[==========] 11 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 11 tests.
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LeetCodeTests" end time: Nov 26 14:16 PST
+"LeetCodeTests" end time: Dec 22 00:26 PST
 "LeetCodeTests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 26 14:16 PST
+End testing: Dec 22 00:26 PST

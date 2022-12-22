@@ -2,8 +2,10 @@
 
 #include <algorithm>
 #include <iostream>
+#include <map>
 #include <numeric>
 #include <set>
+#include <unordered_map>
 
 Solution::Solution() {
 }
@@ -61,4 +63,17 @@ bool Solution::isHappy(int n) {
         n = getNext(n);
     }
     return n == 1;
+}
+
+std::vector<int> Solution::twoSum(std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> seen;
+    for (size_t i = 0; i < nums.size(); i++) {
+        if (seen.find(target - nums[i]) != seen.end()) {
+            std::vector<int> result{(int)i, seen[target - nums[i]]};
+            std::sort(result.begin(), result.end());
+            return result;
+        }
+        seen[nums[i]] = i;
+    }
+    return {};
 }
