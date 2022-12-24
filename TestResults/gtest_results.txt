@@ -5,4 +5,4 @@ Test project /home/brian/repos/cpp_cmake_google_test/build
 
 100% tests passed, 0 tests failed out of 1
 
-Total Test time (real) =   0.00 sec
+Total Test time (real) =   0.01 sec

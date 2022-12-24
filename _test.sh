@@ -17,8 +17,11 @@ echo Preparing to test...
 # TwoSum
 # mkdir build && cd build && cmake -Dtest=ON -DTwoSum=ON .. >/dev/null 2>&1 && make >/dev/null 2>&1
 
+# AnswerQuery
+mkdir build && cd build && cmake -Dtest=ON -DAnswerQuery=ON .. >/dev/null 2>&1 && make >/dev/null 2>&1
+
 # Run every test
-mkdir build && cd build && cmake -Dtest=ON                 .. >/dev/null 2>&1 && make >/dev/null 2>&1
+# mkdir build && cd build && cmake -Dtest=ON                 .. >/dev/null 2>&1 && make >/dev/null 2>&1
 
 echo Testing...
 make test > ../TestResults/gtest_results.txt

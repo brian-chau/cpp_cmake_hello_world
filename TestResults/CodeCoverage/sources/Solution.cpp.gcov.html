@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2022-12-22 00:26:44</td>
+            <td class="headerValue">2022-12-23 20:24:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -139,6 +139,29 @@
 <a name="77"><span class="lineNum">      77 </span>            :     }</a>
 <a name="78"><span class="lineNum">      78 </span>            :     return {};</a>
 <a name="79"><span class="lineNum">      79 </span>            : }</a>
+<a name="80"><span class="lineNum">      80 </span>            : </a>
+<a name="81"><span class="lineNum">      81 </span>            : std::vector&lt;int&gt; Solution::answerQueries(std::vector&lt;int&gt;&amp; nums, std::vector&lt;int&gt;&amp; queries) {</a>
+<a name="82"><span class="lineNum">      82 </span>            :     // Sort 'nums'</a>
+<a name="83"><span class="lineNum">      83 </span>            :     sort(nums.begin(), nums.end());</a>
+<a name="84"><span class="lineNum">      84 </span>            : </a>
+<a name="85"><span class="lineNum">      85 </span>            :     // For each query, collect numbers from lowest to highest.</a>
+<a name="86"><span class="lineNum">      86 </span>            :     // If their sum exceeds the limit 'query', move on to the next query.</a>
+<a name="87"><span class="lineNum">      87 </span>            :     std::vector&lt;int&gt; ans;</a>
+<a name="88"><span class="lineNum">      88 </span>            :     for (auto query : queries) {</a>
+<a name="89"><span class="lineNum">      89 </span>            :         int count(0);</a>
+<a name="90"><span class="lineNum">      90 </span>            :         for (auto num : nums) {</a>
+<a name="91"><span class="lineNum">      91 </span>            :             if (query &gt;= num) {</a>
+<a name="92"><span class="lineNum">      92 </span>            :                 query -= num;</a>
+<a name="93"><span class="lineNum">      93 </span>            :                 count++;</a>
+<a name="94"><span class="lineNum">      94 </span>            :             } else {</a>
+<a name="95"><span class="lineNum">      95 </span>            :                 break;</a>
+<a name="96"><span class="lineNum">      96 </span>            :             }</a>
+<a name="97"><span class="lineNum">      97 </span>            :         }</a>
+<a name="98"><span class="lineNum">      98 </span>            :         ans.push_back(count);</a>
+<a name="99"><span class="lineNum">      99 </span>            :     }</a>
+<a name="100"><span class="lineNum">     100 </span>            : </a>
+<a name="101"><span class="lineNum">     101 </span>            :     return ans;</a>
+<a name="102"><span class="lineNum">     102 </span>            : }</a>
 </pre>
       </td>
     </tr>

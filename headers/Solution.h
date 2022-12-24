@@ -10,5 +10,6 @@ public:
     int pivotIndex(std::vector<int>& nums);
     bool isHappy(int n);
     std::vector<int> twoSum(std::vector<int>& nums, int target);
+    std::vector<int> answerQueries(std::vector<int>& nums, std::vector<int>& queries);
 };
 #endif

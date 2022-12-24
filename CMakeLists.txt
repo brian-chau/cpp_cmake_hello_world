@@ -8,11 +8,12 @@ cmake_minimum_required(VERSION 3.22)
 ## Build options
 ##      Turn on with 'cmake -Dtest=ON'.
 ################################################################
-option(test        "Build all tests."  OFF) # Makes boolean 'test' available.
-option(HappyNumber "Happy number only" OFF)
-option(Pivot       "Pivot"             OFF)
-option(RunningSum  "Running sum only"  OFF)
-option(TwoSum      "TwoSum"            OFF)
+option(test          "Build all tests."  OFF) # Makes boolean 'test' available.
+option(HappyNumber   "Happy number only" OFF)
+option(Pivot         "Pivot"             OFF)
+option(RunningSum    "Running sum only"  OFF)
+option(TwoSum        "TwoSum"            OFF)
+option(AnswerQueries "AnswerQueries"     OFF)
 
 ################################################################
 ## Project description
@@ -92,6 +93,8 @@ if (test)
         file(GLOB TEST_NAMES "tests/Test_RunningSum.cpp")
     elseif(TwoSum)
         file(GLOB TEST_NAMES "tests/Test_TwoSum.cpp")
+    elseif(AnswerQueries)
+        file(GLOB TEST_NAMES "tests/Test_AnswerQueries.cpp")
     else()
         file(GLOB TEST_NAMES "tests/*.cpp")
     endif()
