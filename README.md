@@ -161,64 +161,8 @@ This is an example of how to use:
     alias nanos="nano -c -ET4"
     alias ii="explorer.exe"
     ```
-
-7. Install the necessary dependencies.
-    1. Restart WSL.
-    2. Run `sudo apt update && sudo apt upgrade`
-    3. Install `pip3` and `gcovr`.
-        ```
-        sudo apt install python3-pip
-        pip3 install gcovr
-        ```
-    4. Run `sudo apt install g++-12 gcc-12 build-essential lcov`
-
-7. Install `openssl` from source, along with the `libssl-dev` library.
-    * Download the version `3.0.7` from here: https://www.openssl.org/source/
-    * Run the following commands:
-    ```
-    sudo chmod u+x openssl-3.0.7.tar.gz
-    tar -xzf openssl-3.0.7.tar.gz
-    cd openssl-3.0.7
-    sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
-    sudo make
-    sudo make install
-    sudo apt-get install libssl-dev
-    ```
-
-9. Install `cmake` from source.
-    1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
-    2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
-    3. Run the following commands:
-        ```
-        sudo ./configure
-        sudo make
-        sudo make install
-        ```
-
-9. Install GoogleTest from source.
-    ```
-    git clone https://github.com/google/googletest.git -b release-1.12.1
-    cd googletest        # Main directory of the cloned repository.
-    mkdir build          # Create a directory to hold the build output.
-    cd build
-    cmake ..             # Generate native build scripts for GoogleTest.
-    sudo make
-    sudo make install
-    rm -rf ~/googletest
-    ```
     
-10. Install FMT from source.
-    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
-    * Unzip the `fmt` downloaded file.
-    * Run the following commands:
-        ```
-        mkdir build
-        cd build
-        sudo cmake ..
-        sudo make
-        sudo make install
-        ```
-11. Add GitHub settings
+7. Add GitHub settings
     1. Restart WSL
     2. Run `mkdir repos`
     3. Connect to GitHub
@@ -281,3 +225,80 @@ This is an example of how to use:
 ## Build the project
 1. Open a fresh instance of WSL2 and `cd` into this repository.
 2. Type `make clean` to clean the project, and then type `make` to create the executable.
+
+
+## Install the necessary dependencies
+1. Install `ncurses`
+    1. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
+
+2. Install "gmp":
+    1. Download GMP from here: https://gmplib.org/
+    2. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
+    3. Navigate into that folder: `cd gmp-x.y.z`
+    4. Run the following commands:
+        ```
+        sudo ./configure --enable-cxx
+        sudo make
+        sudo make check
+        sudo make install
+        ```
+    4. Run: `make`
+    5. Run: `sudo ldconfig`
+
+3. Install `pip3` and `gcovr`.
+    ```
+    sudo apt install python3-pip
+    pip3 install gcovr
+    ```
+
+4. Install `g++12`, `gcc-12`, and `lcov`.
+    ```
+    sudo apt install g++-12 gcc-12 lcov
+    ```
+
+5. Install GoogleTest from source.
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+    
+6. Install FMT from source.
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        sudo make
+        sudo make install
+        ```
+
+7. Install `openssl` from source, along with the `libssl-dev` library.
+    * Download the version `3.0.7` from here: https://www.openssl.org/source/
+    * Run the following commands:
+    ```
+    sudo chmod u+x openssl-3.0.7.tar.gz
+    tar -xzf openssl-3.0.7.tar.gz
+    cd openssl-3.0.7
+    sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+    sudo make
+    sudo make install
+    sudo apt-get install libssl-dev
+    ```
+
+8. Install `cmake` from source.
+    1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
+    2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
+    3. Run the following commands:
+        ```
+        sudo ./configure
+        sudo make
+        sudo make install
+        ```
