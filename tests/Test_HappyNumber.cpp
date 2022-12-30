@@ -13,6 +13,7 @@ protected:
 
     SolutionTest() {
         // You can do set-up work for each test here.
+        fails = 0;
     }
 
     virtual ~SolutionTest() {
@@ -29,12 +30,15 @@ protected:
     virtual void TearDown() {
         // Code here will be called immediately after each test (right
         // before the destructor).
+        if (fails > 0) {
+            fprintf(stderr, "TEST FAILED! %u failures found!\n", fails);
+        }
     }
 
     // Objects declared here can be used by all tests in the test case for Solution.
     Solution s;
+    unsigned fails;
 };
-
 // Test case must be called the class above
 // Also note: use TEST_F instead of TEST to access the test fixture (from google test primer)
 
@@ -43,6 +47,7 @@ TEST_F(SolutionTest, HappyNumber1) {
     bool actualResult(s.isHappy(input));
     bool expectedResult(true);
     EXPECT_EQ(actualResult, expectedResult);
+    fails += ::testing::Test::HasFailure();
 }
 
 TEST_F(SolutionTest, HappyNumber2) {
@@ -50,6 +55,7 @@ TEST_F(SolutionTest, HappyNumber2) {
     bool actualResult(s.isHappy(input));
     bool expectedResult(false);
     EXPECT_EQ(actualResult, expectedResult);
+    fails += ::testing::Test::HasFailure();
 }
 
 // }  // namespace - could surround SolutionTest in a namespace

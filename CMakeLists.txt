@@ -13,7 +13,7 @@ option(HappyNumber   "Happy number only" OFF)
 option(Pivot         "Pivot"             OFF)
 option(RunningSum    "Running sum only"  OFF)
 option(TwoSum        "TwoSum"            OFF)
-option(AnswerQueries "AnswerQueries"     OFF)
+option(AnswerQuery   "AnswerQuery"     OFF)
 
 ################################################################
 ## Project description
@@ -55,8 +55,8 @@ find_package(fmt)
 include_directories(headers)
 
 # Link libraries
-link_directories(${CMAKE_SOURCE_DIR}/lib)
-# this means that under the ./lib folder, there are the libfoo.so and libbar.so files
+link_directories(${CMAKE_SOURCE_DIR}/libs)
+# this means that under the ./libs folder, there are the libfoo.so and libbar.so files
 # target_link_libraries(foo bar)
 
 ################################################################
@@ -93,13 +93,13 @@ if (test)
         file(GLOB TEST_NAMES "tests/Test_RunningSum.cpp")
     elseif(TwoSum)
         file(GLOB TEST_NAMES "tests/Test_TwoSum.cpp")
-    elseif(AnswerQueries)
+    elseif(AnswerQuery)
         file(GLOB TEST_NAMES "tests/Test_AnswerQueries.cpp")
     else()
         file(GLOB TEST_NAMES "tests/*.cpp")
     endif()
     list(APPEND      SOURCES    ${TEST_NAMES})
-    list(REMOVE_ITEM TEST_NAMES tests/Test_main.cpp)
+    # list(REMOVE_ITEM TEST_NAMES tests/Test_main.cpp)
 
     # Add the tests to GoogleTest
     add_test(NAME ${TEST_PROJECT_NAME} COMMAND ${CMAKE_PROJECT_NAME})

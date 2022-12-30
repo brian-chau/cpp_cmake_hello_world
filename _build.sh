@@ -1,4 +1,4 @@
 #!/bin/bash
 
 rm -rf build bin/exe
-mkdir build && cd build && cmake .. && make
+mkdir build && cd build && cmake .. && make && rm -rf ../build

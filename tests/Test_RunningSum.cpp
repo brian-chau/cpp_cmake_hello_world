@@ -13,6 +13,7 @@ protected:
 
     SolutionTest() {
         // You can do set-up work for each test here.
+        fails = 0;
     }
 
     virtual ~SolutionTest() {
@@ -29,10 +30,14 @@ protected:
     virtual void TearDown() {
         // Code here will be called immediately after each test (right
         // before the destructor).
+        if (fails > 0) {
+            fprintf(stderr, "TEST FAILED! %u failures found!\n", fails);
+        }
     }
 
     // Objects declared here can be used by all tests in the test case for Solution.
     Solution s;
+    unsigned fails;
 };
 
 // Test case must be called the class above
@@ -42,6 +47,7 @@ TEST_F(SolutionTest, RunningSum1) {
     std::vector<int> actualResult(s.runningSum(input));
     std::vector<int> expectedResult{1, 3, 6, 10};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
+    fails += ::testing::Test::HasFailure();
 }
 
 TEST_F(SolutionTest, RunningSum2) {
@@ -49,6 +55,7 @@ TEST_F(SolutionTest, RunningSum2) {
     std::vector<int> actualResult(s.runningSum(input));
     std::vector<int> expectedResult{1, 2, 3, 4, 5};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
+    fails += ::testing::Test::HasFailure();
 }
 
 TEST_F(SolutionTest, RunningSum3) {
@@ -56,13 +63,7 @@ TEST_F(SolutionTest, RunningSum3) {
     std::vector<int> actualResult(s.runningSum(input));
     std::vector<int> expectedResult{3, 4, 6, 16, 17};
     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
+    fails += ::testing::Test::HasFailure();
 }
-
-// TEST_F(SolutionTest, RunningSum4) {
-//     std::vector<int> input{3, 1, 2, 10, 1};
-//     std::vector<int> actualResult(s.runningSum(input));
-//     std::vector<int> expectedResult{3, 4, 6, 16, 33};
-//     EXPECT_THAT(actualResult, ::testing::ContainerEq(expectedResult));
-// }
 
 // }  // namespace - could surround SolutionTest in a namespace

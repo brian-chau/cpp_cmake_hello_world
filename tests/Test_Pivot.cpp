@@ -13,6 +13,7 @@ protected:
 
     SolutionTest() {
         // You can do set-up work for each test here.
+        fails = 0;
     }
 
     virtual ~SolutionTest() {
@@ -29,10 +30,14 @@ protected:
     virtual void TearDown() {
         // Code here will be called immediately after each test (right
         // before the destructor).
+        if (fails > 0) {
+            fprintf(stderr, "TEST FAILED! %u failures found!\n", fails);
+        }
     }
 
     // Objects declared here can be used by all tests in the test case for Solution.
     Solution s;
+    unsigned fails;
 };
 
 // Test case must be called the class above
@@ -43,6 +48,7 @@ TEST_F(SolutionTest, PivotIndex1) {
     int actualResult(s.pivotIndex(input));
     int expectedResult(3);
     EXPECT_EQ(actualResult, expectedResult);
+    fails += ::testing::Test::HasFailure();
 }
 
 TEST_F(SolutionTest, PivotIndex2) {
@@ -50,6 +56,7 @@ TEST_F(SolutionTest, PivotIndex2) {
     int actualResult(s.pivotIndex(input));
     int expectedResult(-1);
     EXPECT_EQ(actualResult, expectedResult);
+    fails += ::testing::Test::HasFailure();
 }
 
 TEST_F(SolutionTest, PivotIndex3) {
@@ -57,6 +64,7 @@ TEST_F(SolutionTest, PivotIndex3) {
     int actualResult(s.pivotIndex(input));
     int expectedResult(0);
     EXPECT_EQ(actualResult, expectedResult);
+    fails += ::testing::Test::HasFailure();
 }
 
 // }  // namespace - could surround SolutionTest in a namespace

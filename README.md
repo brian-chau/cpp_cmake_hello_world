@@ -2,10 +2,9 @@
 
 | Description    | Badge  |
 | -------------- | ------ |
-| Line Code Coverage  | [![Line Code Coverage](TestResults/_LineCodeCoverageBadge.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
-| Fxn Code Coverage   | [![Fxn Code Coverage](TestResults/_FxnCodeCoverageBadge.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
-| Test Results        | [![Test Results](TestResults/_PassFailBadge.svg)](https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/gtest_results.txt) |
-
+| Line Code Coverage  | [![Line Code Coverage](TestResults/Badges/Line_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Fxn Code Coverage   | [![Fxn Code Coverage](TestResults/Badges/Fxn_Coverage.svg)](https://htmlpreview.github.io/?https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/CodeCoverage/index.html) |
+| Test Results        | [![Test Results](TestResults/Badges/Test_Result.svg)](https://github.com/brian-chau/cpp_cmake_google_test/blob/main/TestResults/gtest_results.txt) |
 
 This is an example of how to use:
 * Install Ubuntu in WSL2
@@ -160,8 +159,18 @@ This is an example of how to use:
     alias cls="printf '\ec'; history -c"
     alias nanos="nano -c -ET4"
     alias ii="explorer.exe"
+    function git_reset() {
+        git reset HEAD
+        git checkout HEAD .
+        git clean -fxd
+        git remote update origin --prune
+        git checkout main
+        git fetch -p
+        git pull
+        git branch -vv | grep "\: gone" | awk '{print $1}' | xargs git branch -d
+    }
     ```
-    
+
 7. Add GitHub settings
     1. Restart WSL
     2. Run `mkdir repos`
@@ -222,12 +231,7 @@ This is an example of how to use:
     3. In the keybindings search box, type "Makefile: Build clean the current target"
         1. Double-click the keybinding and replace it with Ctrl+Shift+Z.
 
-## Build the project
-1. Open a fresh instance of WSL2 and `cd` into this repository.
-2. Type `make clean` to clean the project, and then type `make` to create the executable.
-
-
-## Install the necessary dependencies
+## Setting up the dependencies for this project
 1. Install `ncurses`
     1. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
 
@@ -244,6 +248,23 @@ This is an example of how to use:
         ```
     4. Run: `make`
     5. Run: `sudo ldconfig`
+        1. If you get an error that says `/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link`, then do the following:
+        ```
+        # in cmd as admin
+        cd C:\Windows\System32\lxss\lib
+        del libcuda.so
+        del libcuda.so.1
+        wsl -e /bin/bash
+        # in WSL
+        ln -s libcuda.so.1.1 libcuda.so.1
+        ln -s libcuda.so.1.1 libcuda.so
+        exit
+        # back in CMD
+        wsl --shutdown
+        wsl -e /bin/bash
+        # in restarted WSL
+        sudo ldconfig
+        ```
 
 3. Install `pip3` and `gcovr`.
     ```
@@ -256,31 +277,7 @@ This is an example of how to use:
     sudo apt install g++-12 gcc-12 lcov
     ```
 
-5. Install GoogleTest from source.
-    ```
-    git clone https://github.com/google/googletest.git -b release-1.12.1
-    cd googletest        # Main directory of the cloned repository.
-    mkdir build          # Create a directory to hold the build output.
-    cd build
-    cmake ..             # Generate native build scripts for GoogleTest.
-    sudo make
-    sudo make install
-    rm -rf ~/googletest
-    ```
-    
-6. Install FMT from source.
-    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
-    * Unzip the `fmt` downloaded file.
-    * Run the following commands:
-        ```
-        mkdir build
-        cd build
-        sudo cmake ..
-        sudo make
-        sudo make install
-        ```
-
-7. Install `openssl` from source, along with the `libssl-dev` library.
+5. Install `openssl` from source, along with the `libssl-dev` library.
     * Download the version `3.0.7` from here: https://www.openssl.org/source/
     * Run the following commands:
     ```
@@ -293,7 +290,7 @@ This is an example of how to use:
     sudo apt-get install libssl-dev
     ```
 
-8. Install `cmake` from source.
+6. Install `cmake` from source.
     1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
     2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
     3. Run the following commands:
@@ -302,3 +299,44 @@ This is an example of how to use:
         sudo make
         sudo make install
         ```
+
+7. Set up the badge generator.
+    1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
+    2. Install Go by using this command:
+    ```
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
+    ```
+    3. Download the dependencies for the badge generator:
+    ```
+    go mod init main
+    go mod tidy
+    ```
+    4. Compile the generator:
+    ```
+    go build generate_badges.go
+    ```
+
+8. Install GoogleTest from source.
+    ```
+    git clone https://github.com/google/googletest.git -b release-1.12.1
+    cd googletest        # Main directory of the cloned repository.
+    mkdir build          # Create a directory to hold the build output.
+    cd build
+    cmake ..             # Generate native build scripts for GoogleTest.
+    sudo make
+    sudo make install
+    rm -rf ~/googletest
+    ```
+
+9. Install FMT from source.
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Unzip the `fmt` downloaded file.
+    * Run the following commands:
+        ```
+        mkdir build
+        cd build
+        sudo cmake ..
+        sudo make
+        sudo make install
+        ```
+
