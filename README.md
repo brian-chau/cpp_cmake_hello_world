@@ -222,6 +222,9 @@ This is an example of how to use:
         2. Copy that path and paste it into the field.
     9. In the search bar, type "Default Formatter" and select from the dropdown menu `C/C++`.
     10. In the search bar, type `C_Cpp.default.cppStandard` and change the value to `gnu++20`
+    11. In the search bar, type `C_Cpp: Intelli Sense`.
+        1. For the field `C_Cpp: Intelli Sense Engine`, select `Tag Parser`.
+        2. For the field `C_Cpp: Intelli Sense Engine Fallback`, select `enabled`.
 11. Set the key bindings to build and clean the solution.
     1. Press Ctrl+K Ctrl+S
     2. In the keybindings search box, type "makefile: build clean the target ALL"
