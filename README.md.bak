@@ -295,8 +295,8 @@ This is an example of how to use:
     ```
 
 6. Install `cmake` from source.
-    1. Download `cmake-3.27.0.tar.gz` from this link: https://cmake.org/download/
-    2. Unzip it with the command `tar -xzf cmake-3.27.0.tar.gz`.
+    1. Download `cmake-3.25.0.tar.gz` from this link: https://cmake.org/download/
+    2. Unzip it with the command `tar -xzf cmake-3.25.0.tar.gz`.
     3. Run the following commands:
         ```
         sudo ./configure
@@ -308,7 +308,7 @@ This is an example of how to use:
     1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
     2. Install Go by using this command:
     ```
-    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.1.linux-amd64.tar.gz
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.4.linux-amd64.tar.gz
     ```
     3. Download the dependencies for the badge generator:
     ```
