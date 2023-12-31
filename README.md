@@ -308,21 +308,27 @@ This is an example of how to use:
     1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
     2. Install Go by using this command:
     ```
-    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.1.linux-amd64.tar.gz
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf goX.Y.Z.linux-amd64.tar.gz
     ```
-    3. Download the dependencies for the badge generator:
+    3. Add this line to the `$HOME/.profile`
+    ```
+    export PATH=$PATH:/usr/local/go/bin
+    ```
+    4. Restart `wsl`.
+    5. Run `go --version` to ensure that Go is installed properly.
+    6. Download the dependencies for the badge generator:
     ```
     go mod init main
     go mod tidy
     ```
-    4. Compile the generator:
+    7. Compile the generator:
     ```
     go build generate_badges.go
     ```
 
 9. Install GoogleTest from source.
     ```
-    git clone https://github.com/google/googletest.git -b release-1.12.1
+    git clone https://github.com/google/googletest.git -b v1.14.0
     cd googletest        # Main directory of the cloned repository.
     mkdir build          # Create a directory to hold the build output.
     cd build
@@ -333,7 +339,7 @@ This is an example of how to use:
     ```
 
 10. Install FMT from source.
-    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/9.1.0).
+    * Download fmt library from [its release page on GitHub](https://github.com/fmtlib/fmt/releases/tag/10.1.1).
     * Unzip the `fmt` downloaded file.
     * Run the following commands:
         ```
