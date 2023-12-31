@@ -341,6 +341,7 @@ This is an example of how to use:
 10. Install FMT from source.
     ```
     git clone git@github.com:fmtlib/fmt.git -b 10.1.1
+    cd fmt
     mkdir build
     cd build
     sudo cmake ..
