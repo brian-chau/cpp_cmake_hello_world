@@ -250,7 +250,8 @@ This is an example of how to use:
         sudo make check
         sudo make install
         ```
-    6. Run: `sudo ldconfig`
+    6. Install the other libraries: `sudo apt install libgmp libgmp-dev`
+    7. Run: `sudo ldconfig`
         1. If you get an error that says `/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link`, then do the following:
         ```
         # in cmd as admin
@@ -282,12 +283,12 @@ This is an example of how to use:
 
 6. Install `openssl` from source, along with the `libssl-dev` library.
     * Install `libz-dev` dependency: `sudo apt install libz-dev`
-    * Download the version `3.0.7` from here: https://www.openssl.org/source/
+    * Download the version `3.3.0` from here: https://www.openssl.org/source/
     * Run the following commands:
     ```
-    sudo chmod u+x openssl-3.2.0.tar.gz
-    tar -xzf openssl-3.2.0.tar.gz
-    cd openssl-3.2.0
+    sudo chmod u+x openssl-3.3.0.tar.gz
+    tar -xzf openssl-3.3.0.tar.gz
+    cd openssl-3.3.0
     sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
     sudo make
     sudo make install
@@ -295,8 +296,8 @@ This is an example of how to use:
     ```
 
 7. Install `cmake` from source.
-    1. Download `cmake-3.27.0.tar.gz` from this link: https://cmake.org/download/
-    2. Unzip it with the command `tar -xzf cmake-3.27.0.tar.gz`.
+    1. Download `cmake-3.29.2.tar.gz` from this link: https://cmake.org/download/
+    2. Unzip it with the command `tar -xzf cmake-3.29.2.tar.gz`.
     3. Run the following commands:
         ```
         sudo ./configure

@@ -6,6 +6,8 @@
 #include <numeric>
 #include <set>
 #include <unordered_map>
+#include <gmp.h>
+#include <gmpxx.h>
 
 Solution::Solution() {
 }

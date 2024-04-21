@@ -47,6 +47,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 ## Used for Rust-like printing
 ##   e.g. fmt::print("{}", var)
 find_package(fmt)
+find_library(gmp gmp)
 
 ################################################################
 ## Project-specific settings
@@ -109,13 +110,13 @@ if (test)
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -O3 -fPIC -std=c++20 --coverage -fprofile-arcs -ftest-coverage)
 
     # In the linkers, add the GoogleTest libraries
-    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} gcov)
+    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} gcov gmp gmpxx)
     set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
 else()
     # Compile the main binary file
     add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
     target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE -Wall -Werror -O3 -fPIC -std=c++20)
-    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt)
+    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt gmp gmpxx)
 endif()
 
 
