@@ -283,12 +283,12 @@ This is an example of how to use:
 
 6. Install `openssl` from source, along with the `libssl-dev` library.
     * Install `libz-dev` dependency: `sudo apt install libz-dev`
-    * Download the version `3.3.0` from here: https://www.openssl.org/source/
+    * Download the latest version from here: https://www.openssl.org/source/
     * Run the following commands:
     ```
-    sudo chmod u+x openssl-3.3.0.tar.gz
-    tar -xzf openssl-3.3.0.tar.gz
-    cd openssl-3.3.0
+    sudo chmod u+x openssl-x.y.z.tar.gz
+    tar -xzf openssl-x.y.z.tar.gz
+    cd openssl-x.y.z
     sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
     sudo make
     sudo make install
@@ -296,8 +296,8 @@ This is an example of how to use:
     ```
 
 7. Install `cmake` from source.
-    1. Download `cmake-3.29.2.tar.gz` from this link: https://cmake.org/download/
-    2. Unzip it with the command `tar -xzf cmake-3.29.2.tar.gz`.
+    1. Download `cmake-x.y.z.tar.gz` from this link: https://cmake.org/download/
+    2. Unzip it with the command `tar -xzf cmake-x.y.z.tar.gz`.
     3. Run the following commands:
         ```
         sudo ./configure
@@ -329,19 +329,18 @@ This is an example of how to use:
 
 9. Install GoogleTest from source.
     ```
-    git clone https://github.com/google/googletest.git -b v1.14.0
+    git clone https://github.com/google/googletest.git -b <latestReleasedTag>
     cd googletest        # Main directory of the cloned repository.
     mkdir build          # Create a directory to hold the build output.
     cd build
     cmake ..             # Generate native build scripts for GoogleTest.
     sudo make
     sudo make install
-    rm -rf ~/googletest
     ```
 
 10. Install FMT from source.
     ```
-    git clone git@github.com:fmtlib/fmt.git -b 10.1.1
+    git clone git@github.com:fmtlib/fmt.git -b <latestReleasedTag>
     cd fmt
     mkdir build
     cd build
