@@ -250,8 +250,7 @@ This is an example of how to use:
         sudo make check
         sudo make install
         ```
-    6. Install the other libraries: `sudo apt install libgmp libgmp-dev`
-    7. Run: `sudo ldconfig`
+    6. Run: `sudo ldconfig`
         1. If you get an error that says `/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link`, then do the following:
         ```
         # in cmd as admin
@@ -270,18 +269,18 @@ This is an example of how to use:
         sudo ldconfig
         ```
 
-4. Install `pip3` and `gcovr`.
+3. Install `pip3` and `gcovr`.
     ```
     sudo apt install python3-pip
     pip3 install gcovr
     ```
 
-5. Install `g++12`, `gcc-12`, and `lcov`.
+4. Install `g++12`, `gcc-12`, and `lcov`.
     ```
     sudo apt install g++-12 gcc-12 lcov
     ```
 
-6. Install `openssl` from source, along with the `libssl-dev` library.
+5. Install `openssl` from source, along with the `libssl-dev` library.
     * Install `libz-dev` dependency: `sudo apt install libz-dev`
     * Download the latest version from here: https://www.openssl.org/source/
     * Run the following commands:
@@ -295,7 +294,7 @@ This is an example of how to use:
     sudo apt install libssl-dev
     ```
 
-7. Install `cmake` from source.
+6. Install `cmake` from source.
     1. Download `cmake-x.y.z.tar.gz` from this link: https://cmake.org/download/
     2. Unzip it with the command `tar -xzf cmake-x.y.z.tar.gz`.
     3. Run the following commands:
@@ -305,7 +304,7 @@ This is an example of how to use:
         sudo make install
         ```
 
-8. Set up the badge generator.
+7. Set up the badge generator.
     1. Download the Go programming language from this URL, select `Linux`, and download the *.tar.gz file: https://go.dev/doc/install
     2. Install Go by using this command:
     ```
@@ -327,7 +326,7 @@ This is an example of how to use:
     go build generate_badges.go
     ```
 
-9. Install GoogleTest from source.
+8. Install GoogleTest from source.
     ```
     git clone https://github.com/google/googletest.git -b <latestReleasedTag>
     cd googletest        # Main directory of the cloned repository.
@@ -338,7 +337,7 @@ This is an example of how to use:
     sudo make install
     ```
 
-10. Install FMT from source.
+8. Install FMT from source.
     ```
     git clone git@github.com:fmtlib/fmt.git -b <latestReleasedTag>
     cd fmt
