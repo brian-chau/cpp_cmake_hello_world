@@ -156,9 +156,13 @@ This is an example of how to use:
 
 6. Add custom aliases to `~/.bash_aliases`
     ```
-    alias cls="printf '\ec'; history -c"
+    alias cls="printf '\ec'; history -c;xsel -bc;"
     alias nanos="nano -c -ET4"
     alias ii="explorer.exe"
+    function mkcd() {
+        mkdir $1
+        cd $1
+    }
     function git_reset() {
         git reset HEAD
         git checkout HEAD .
@@ -171,7 +175,10 @@ This is an example of how to use:
     }
     ```
 
-7. Add GitHub settings
+7. Install dependencies
+    1. Install `xsel` using `sudo apt install xsel`.
+
+8. Add GitHub settings
     1. Restart WSL
     2. Run `mkdir repos`
     3. Connect to GitHub
@@ -225,6 +232,7 @@ This is an example of how to use:
     11. In the search bar, type `C_Cpp: Intelli Sense`.
         1. For the field `C_Cpp: Intelli Sense Engine`, select `Tag Parser`.
         2. For the field `C_Cpp: Intelli Sense Engine Fallback`, select `enabled`.
+    12. In the search bar, type `Render Whitespace`, and select `all`.
 11. Set the key bindings to build and clean the solution.
     1. Press Ctrl+K Ctrl+S
     2. In the keybindings search box, type "makefile: build clean the target ALL"
@@ -269,15 +277,15 @@ This is an example of how to use:
         sudo ldconfig
         ```
 
-3. Install `pip3` and `gcovr`.
+3. Install `pipx` and `gcovr`.
     ```
-    sudo apt install python3-pip
-    pip3 install gcovr
+    sudo apt install pipx
+    pipx install gcovr
     ```
 
-4. Install `g++12`, `gcc-12`, and `lcov`.
+4. Install `g++-14`, `gcc-14`, and `lcov`.
     ```
-    sudo apt install g++-12 gcc-12 lcov
+    sudo apt install g++-14 gcc-14 lcov
     ```
 
 5. Install `openssl` from source, along with the `libssl-dev` library.
@@ -285,7 +293,6 @@ This is an example of how to use:
     * Download the latest version from here: https://www.openssl.org/source/
     * Run the following commands:
     ```
-    sudo chmod u+x openssl-x.y.z.tar.gz
     tar -xzf openssl-x.y.z.tar.gz
     cd openssl-x.y.z
     sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
@@ -337,7 +344,7 @@ This is an example of how to use:
     sudo make install
     ```
 
-8. Install FMT from source.
+9. Install FMT from source.
     ```
     git clone git@github.com:fmtlib/fmt.git -b <latestReleasedTag>
     cd fmt
@@ -347,4 +354,3 @@ This is an example of how to use:
     sudo make
     sudo make install
     ```
-
